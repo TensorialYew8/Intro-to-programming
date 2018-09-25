@@ -11,11 +11,13 @@ elif tweet == 'IRL':
 elif tweet == 'WTF':
     print('WTF = Whens the foxtrot?')
 elif tweet == 'THX':
-    print('THX = Thank you'
-elif tweet == 'TTYL'
+    print('THX = Thank you')
+elif tweet == 'TTYL':
     print('TTYL = Talk to you later')
 else:
     print("Sorry, don't know that one")
 tweet = input('Enter tweet 160 characters or less')
 if len(tweet) > 160:
-    print "Error! Only 160 or less characters allowed!"
+    print('Error! Only 160 or less characters allowed!')
+else:
+    print('\nGood Job')
