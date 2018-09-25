@@ -1,25 +1,29 @@
 tweet = input('Enter abbreviation from tweet:\n')
-
-if tweet == 'LOL':
-    print('LOL = laughing out loud')
-elif tweet == 'BFN':
-    print('BFN = bye for now')
-elif tweet == 'FTW':
-    print('FTW = for the win')
-elif tweet == 'IRL':
-    print('IRL = in real life')
-elif tweet == 'WTF':
-    print('WTF = Whens the foxtrot?')
-elif tweet == 'THX':
-    print('THX = Thank you')
-elif tweet == 'TTYL':
-    print('TTYL = Talk to you later')
-elif tweet == 'BRB':
-    print('BRB = Be Right Back')
+Abbrev = {
+    'LOL': 'laughing out loud',
+    'BFN': 'bye for now',
+    'FTW': 'for the win',
+    'IRL': 'in real life',
+    'WTF': 'whens the foxtrot',
+    'THX': 'thank you',
+    'TTYL': 'talk to you later',
+    'BRB': 'be right back',
+    'AFK': 'away from keyboard',
+    'NVM': 'nevermind'
+   }
+if tweet in Abbrev:
+    print(tweet,'=', Abbrev[tweet])
 else:
     print("Sorry, don't know that one")
-tweet = input('Enter tweet 160 characters or less')
+
+tweet = input('Enter tweet 160 characters or less\n')
 if len(tweet) > 160:
     print('Error! Only 160 or less characters allowed!')
 else:
-    print('\nGood Job')
+    print(tweet)
+    for item in Abbrev:
+        if item in tweet:
+            print(item,'=',Abbrev[item])
+            tweet = tweet.replace(item, Abbrev[item])
+print()
+print(tweet)
