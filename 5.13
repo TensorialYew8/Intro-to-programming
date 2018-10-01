@@ -1,19 +1,19 @@
 import random
 
-num_twos = 0
-num_threes = 0
-num_fours = 0
-num_fives = 0
-num_sixes = 0
-num_sevens = 0
-num_eights = 0
-num_nines = 0
-num_tens = 0
-num_elevens = 0
-num_twelves = 0
 num_rolls = 1
 while num_rolls >= 1:
     num_rolls = int(input('Enter number of rolls:\n'))
+    num_twos = 0
+    num_threes = 0
+    num_fours = 0
+    num_fives = 0
+    num_sixes = 0
+    num_sevens = 0
+    num_eights = 0
+    num_nines = 0
+    num_tens = 0
+    num_elevens = 0
+    num_twelves = 0
     if num_rolls >= 1:
         for i in range(num_rolls):
             die1 = random.randint(1,6)
@@ -85,3 +85,4 @@ while num_rolls >= 1:
         print('')
     else:
         print('Invalid number of rolls. Try again.')
+
