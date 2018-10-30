@@ -1,0 +1,9 @@
+Pig_input=input()
+break_words=Pig_input.split()
+i = 0
+while i < len(break_words):
+    break_words[i]=break_words[i][1:]+ break_words[i][0]+'AY'
+    i +=1
+sep = ' '
+break_words2 = sep.join(break_words)
+print(break_words2)
