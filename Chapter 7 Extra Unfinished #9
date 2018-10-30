@@ -1,16 +1,25 @@
 def vowels(userInput):
-    listVowels = ['A','a','E','e','I','i','O','o','U','u']
     i = 0
     total = 0
     while i < len(listVowels):
         mod = userInput.count(listVowels[i])
         total += mod
         i += 1
-    print(mod)
+    return total
 
-
+def constant(userInput):
+    i = 0
+    total = 0
+    while i < len(listVowels):
+        mod = userInput.count(listVowels[i])
+        total += mod
+        i += 1
+        constant_total = (len(userInput)-total)
+    return constant_total
         
     
 if __name__ == '__main__':
+    listVowels = ['A','a','E','e','I','i','O','o','U','u']
     userInput = input('Enter a statement:\n')
-    vowels(userInput)
+    print('Number of vowels:', vowels(userInput))
+    print('Number of constants:', constant(userInput))
