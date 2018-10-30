@@ -1,0 +1,8 @@
+##def function1():
+vowels= input()
+list_vow= ['A','a','E','e','I','i','O','o', 'U','u']
+
+while list_vow in vowels:
+    print(vowels.count())
+
+##function1()
