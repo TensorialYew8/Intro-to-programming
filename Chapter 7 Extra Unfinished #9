@@ -1,8 +1,16 @@
-##def function1():
-vowels= input()
-list_vow= ['A','a','E','e','I','i','O','o', 'U','u']
+def vowels(userInput):
+    listVowels = ['A','a','E','e','I','i','O','o','U','u']
+    i = 0
+    total = 0
+    while i < len(listVowels):
+        mod = userInput.count(listVowels[i])
+        total += mod
+        i += 1
+    print(mod)
 
-while list_vow in vowels:
-    print(vowels.count())
 
-##function1()
+        
+    
+if __name__ == '__main__':
+    userInput = input('Enter a statement:\n')
+    vowels(userInput)
