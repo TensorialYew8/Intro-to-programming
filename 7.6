@@ -1,0 +1,21 @@
+inputInput= input('Enter input string:')
+baclava= inputInput.split(',')
+print()
+
+if ',' in inputInput:
+    print('{0}{1}'.format(baclava[0],baclava[1]))
+else:
+    print('Error: No comma in string.')
+print('First word:',baclava[0])
+print('Second word:{0}'.format (baclava[1]))  
+
+while inputInput != 'q':
+    inputInput= input('Enter input string:')
+    baclava= inputInput.split(',')
+    print()
+    if ',' in inputInput:
+        print('{0}{1}'.format(baclava[0],baclava[1]))
+    else:
+        print('Error: No comma in string.')
+    print('First word:',baclava[0])
+    print('Second word:{0}'.format (baclava[1])) 
