@@ -1,0 +1,70 @@
+import pickle
+
+    
+class Employee:
+    def __init__(self, name='none', ID_number=0, department='none', job_title='none'):
+        self.name = name
+        self.ID_number = ID_number
+        self.department = department
+        self.job_title = job_title
+
+    def print_employee(self):
+        print('%-15s%-16s%-17s%-20s' % (self.name,self.ID_number, self.department, self.job_title))
+
+    def UpdateEmployee(self):
+        menuOp = ''
+        menuUpdate = ('\nMENU\n'
+                      'n - Change Name\n'
+                      'd - Change Department\n'
+                      't - Change Job Title\n'
+                      'b - Back up\n'
+                      )
+        while menuOp != 'b':
+            print(menuUpdate)
+            menuOp = input('Choose an option:\n')
+            if menuOp == 'b':
+                break
+            elif menuOp == 'n':
+                name = input('Enter employee\'s new name:\n')
+                self.name = name
+            elif menuOp == 'd':
+                self.department = input('Enter employee\'s department:\n')
+            elif menuOp == 't':
+                self.job_title = input('Enter employee\'s job title:\n')
+            else:
+                print('Try again')
+
+def LookUpEmployee():
+    lookup = input('Enter a employee\'s ID number:\n')
+    if lookup in employees:
+        print('%-15s%-16s%-17s%-20s' % ('Name', 'ID Number', 'Department', 'Job Title'))
+        print('%s' % ('-' * 65))
+        employees[lookup].print_employee()
+    else:
+        print('Employee not Found')
+
+def NewEmployee():
+    employeeCount = len(employees)
+    name = input('Enter employee\'s name:\n')
+    ID_number = input('Enter employee\'s ID number:\n')
+    department = input('Enter employee\'s department:\n')
+    job_title = input('Enter employee\'s job title:\n')
+    new_employee = Employee(name, ID_number, department, job_title)
+    employees[ID_number] = new_employee
+    employeeCount += 1
+    return employees
+
+def DeleteEmployee():
+    search = input('Enter ID Number of employee you want to delete:\n')
+    if search in employees:
+        del employees[search]
+        print('Success')
+    else:
+        print("Not found")
+    
+def print_menu():
+    menuOp = ''
+    menu = ('\nMENU\n'
+            'l - Look up an employee\n'
+            'a - Add a new employee\n'
+            'u - Change an existing employee\'s name, department, job title\n'
