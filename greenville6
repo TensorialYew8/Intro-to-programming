@@ -1,0 +1,107 @@
+/*
+ Author: Thomas Mudek
+ Date: 02/26/19
+ */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace GreenvilleRevenue
+{
+    class GreenvilleRevenue
+    {
+        static void Main()
+        {
+            double admission = 25.00;
+            double revenue;
+            int lastYearNum = 31, thisYearNum = 31;
+
+            while (lastYearNum > 30 || lastYearNum < 0)
+            {
+                Write("Enter the number of contestants in last year's competition (0 - 30): ");
+                lastYearNum = Convert.ToInt32(ReadLine());
+                if (lastYearNum > 30 || lastYearNum < 0)
+                {
+                    WriteLine("invalid amount");
+                }
+            }
+
+            while (thisYearNum > 30 || thisYearNum < 0)
+            {
+                Write("Enter the number of contestants in this year's competition (0 - 30): ");
+                thisYearNum = Convert.ToInt32(ReadLine());
+                if (thisYearNum > 30 || thisYearNum < 0)
+                {
+                    WriteLine("invalid amount");
+                }
+            }
+
+            bool moreThisYear = thisYearNum > lastYearNum;
+            revenue = thisYearNum * admission;
+
+            WriteLine();
+            if (thisYearNum > (lastYearNum * 2))
+            {
+                WriteLine("The Competition is more than twice as big this year!");
+            }
+            else if (thisYearNum > lastYearNum)
+            {
+                WriteLine("The competition is bigger than ever!");
+            }
+            else if (thisYearNum < lastYearNum)
+            {
+                WriteLine("A tighter race this year! Come out and cast your vote.");
+            }
+            WriteLine("\nExpected revenue for this year's competition is: ${0}", revenue.ToString("F2"));
+
+            string[] contestents = new string[thisYearNum];
+            string[] contestTal = new string[thisYearNum];
+            int x = 0, hello = 2;
+            string temp;
+
+            while (x < contestents.Length)
+            {
+                WriteLine("Enter contestent name");
+                temp = ReadLine();
+                contestents[x] = temp;
+                
+                while (hello == 2)
+                {
+                    WriteLine("Enter contestant talent");
+                    temp = ReadLine();
+                    if (temp == "S" || temp == "D" || temp == "M" || temp == "O")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        WriteLine("Enter valid talent code");
+                        WriteLine("Enter contestant talent");
+                        temp = ReadLine();
+                    }
+                }
+                contestTal[x] = temp;
+                
+
+                ++x;
+            }
+            for (int y = 0; y < x; ++y)
+            {
+                Console.Write("{0,6}", contestents[y]);
+            }
+            WriteLine();
+            for (int y = 0; y < x; ++y)
+            {
+                Console.Write("{0,6}", contestTal[y]);
+            }
+            WriteLine();
+            Write("How many are in this talent?: ");
+            string entryString = ReadLine();
+            x = Array.BinarySearch(contestTal, entryString);
+            WriteLine("The total is " + x);
+        }
+    }
+}
